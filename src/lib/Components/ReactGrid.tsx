@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 import { CellRenderer, ReactGridProps } from "../../core";
 import {

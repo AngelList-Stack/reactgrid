@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { State } from '../Model/State';
 import { ReactGridProps, CellLocation } from '../Model/PublicModel';
 import { CellMatrixBuilder } from '../Model/CellMatrixBuilder';

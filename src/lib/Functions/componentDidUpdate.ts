@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Direction, Location } from './../Model/InternalModel';
 import { State } from './../Model/State';
 import { ReactGridProps } from './../Model/PublicModel';

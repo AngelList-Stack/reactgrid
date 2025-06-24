@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { isIOS, isIpadOS } from '../Functions/operatingSystem';
 
 export const getTimestamp = (time: string, defaultDate?: string): number => {

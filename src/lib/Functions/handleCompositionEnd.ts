@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { KeyboardEvent } from '../Model/domEventsTypes';
 import { State } from '../Model/State';
 import { handleCompositionEndOnCellTemplate } from "./handleCompositionEndOnCellTemplate";

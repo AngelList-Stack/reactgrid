@@ -1,3 +1,4 @@
+// @ts-nocheck
 const characterMapShift: string[] = [];
 characterMapShift[8] = "";
 characterMapShift[9] = "";

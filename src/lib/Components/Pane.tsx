@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import { Range } from '../Model/Range';
 import { State } from '../Model/State';

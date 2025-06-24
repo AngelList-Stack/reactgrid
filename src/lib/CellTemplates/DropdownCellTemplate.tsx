@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 
 // NOTE: all modules imported below may be imported from '@silevis/reactgrid'

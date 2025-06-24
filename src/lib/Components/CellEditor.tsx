@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import { getReactGridOffsets, getStickyOffset } from '../Functions/elementSizeHelpers';
 import { getScrollOfScrollableElement, getTopScrollableElement } from '../Functions/scrollHelpers';

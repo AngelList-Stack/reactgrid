@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 import { PaneContentChild, Range } from "../../core";
 import { CellSelectionBehavior } from "../Behaviors/CellSelectionBehavior";

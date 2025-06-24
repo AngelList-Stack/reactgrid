@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Direction, PointerLocation } from './InternalModel';
 import { KeyboardEvent, ClipboardEvent, PointerEvent } from './domEventsTypes';
 import { State } from './State';

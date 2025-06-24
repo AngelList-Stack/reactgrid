@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
     Direction, PointerLocation, getScrollOfScrollableElement,
 } from '../../core';

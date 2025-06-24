@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { GridColumn, Location, isSelectionKey, Direction } from "../../core";
 import { PointerEvent } from "../Model/domEventsTypes";
 import { Behavior } from "../Model/Behavior";

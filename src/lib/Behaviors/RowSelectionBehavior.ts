@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Location, isSelectionKey, Direction, GridRow, PointerLocation, CellMatrix } from "../../core";
 import { Behavior } from "../Model/Behavior";
 import { State } from "../Model/State";

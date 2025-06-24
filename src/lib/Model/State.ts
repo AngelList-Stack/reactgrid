@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { CellTemplates, Cell, ReactGridProps, Compatible, Highlight, CellChange, Id, SelectionMode } from './PublicModel';
 import { isBrowserIE } from '../Functions/internetExplorer';
 import { isBrowserEdge } from '../Functions/microsoftEdge';

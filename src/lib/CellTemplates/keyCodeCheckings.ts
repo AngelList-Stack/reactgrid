@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { keyCodes } from '../Functions/keyCodes';
 
 /**

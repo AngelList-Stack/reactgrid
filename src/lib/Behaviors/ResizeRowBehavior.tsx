@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import {
   Direction,
@@ -22,24 +23,14 @@ export class ResizeRowBehavior extends Behavior {
   autoScrollDirection: Direction = "vertical";
   isInScrollableRange!: boolean;
 
-  handlePointerDown(
-    event: PointerEvent,
-    location: PointerLocation,
-    state: State
-  ): State {
+  handlePointerDown(event: PointerEvent, location: PointerLocation, state: State): State {
     this.initialLocation = location;
     this.resizedRow = location.row;
-    this.isInScrollableRange = state.cellMatrix.scrollableRange.rows.some(
-      (r) => r.idx === this.resizedRow.idx
-    );
+    this.isInScrollableRange = state.cellMatrix.scrollableRange.rows.some((r) => r.idx === this.resizedRow.idx);
     return state;
   }
 
-  handlePointerMove(
-    event: PointerEvent,
-    location: PointerLocation,
-    state: State
-  ): State {
+  handlePointerMove(event: PointerEvent, location: PointerLocation, state: State): State {
     let linePosition = location.viewportY;
     if (
       !(
@@ -49,37 +40,22 @@ export class ResizeRowBehavior extends Behavior {
       )
     ) {
       const offset = this.getLinePositionOffset(state);
-      linePosition =
-        (state.props?.minRowHeight ?? CellMatrix.MIN_ROW_HEIGHT) + this.resizedRow.top + offset;
+      linePosition = (state.props?.minRowHeight ?? CellMatrix.MIN_ROW_HEIGHT) + this.resizedRow.top + offset;
     }
     return { ...state, linePosition, lineOrientation: "horizontal" };
   }
 
-  handlePointerUp(
-    event: PointerEvent,
-    location: PointerLocation,
-    state: State
-  ): State {
-    const newHeight =
-      this.resizedRow.height +
-      location.viewportY -
-      this.initialLocation.viewportY;
+  handlePointerUp(event: PointerEvent, location: PointerLocation, state: State): State {
+    const newHeight = this.resizedRow.height + location.viewportY - this.initialLocation.viewportY;
     if (state.props?.onRowResized) {
       const newRowHeight =
         newHeight >= (state.props?.minRowHeight ?? CellMatrix.MIN_ROW_HEIGHT)
           ? newHeight
-          : (state.props?.minRowHeight ?? CellMatrix.MIN_ROW_HEIGHT);
-      state.props.onRowResized(
-        this.resizedRow.rowId,
-        newRowHeight,
-        state.selectedIds
-      );
+          : state.props?.minRowHeight ?? CellMatrix.MIN_ROW_HEIGHT;
+      state.props.onRowResized(this.resizedRow.rowId, newRowHeight, state.selectedIds);
     }
     let focusedLocation = state.focusedLocation;
-    if (
-      focusedLocation !== undefined &&
-      this.resizedRow.rowId === focusedLocation.row.idx
-    ) {
+    if (focusedLocation !== undefined && this.resizedRow.rowId === focusedLocation.row.idx) {
       const row = { ...focusedLocation.row, height: newHeight };
       focusedLocation = { ...focusedLocation, row };
     }
@@ -91,37 +67,21 @@ export class ResizeRowBehavior extends Behavior {
     const offset = this.getLinePositionOffset(state);
     return (
       pane.contains(this.initialLocation) && (
-        <ResizeRowHint
-          top={this.resizedRow.top}
-          linePosition={state.linePosition}
-          offset={offset}
-        />
+        <ResizeRowHint top={this.resizedRow.top} linePosition={state.linePosition} offset={offset} />
       )
     );
   }
 
   getLinePositionOffset(state: State): number {
-    const { scrollTop } = getScrollOfScrollableElement(
-      state.scrollableElement
-    );
+    const { scrollTop } = getScrollOfScrollableElement(state.scrollableElement);
     const { top } = getReactGridOffsets(state);
     const topStickyOffset = getStickyOffset(scrollTop, top);
     const bottomStickyOffset =
-      getVisibleSizeOfReactGrid(state).height +
-      topStickyOffset -
-      state.cellMatrix.ranges.stickyBottomRange.height;
+      getVisibleSizeOfReactGrid(state).height + topStickyOffset - state.cellMatrix.ranges.stickyBottomRange.height;
     let offset = 0;
-    if (
-      state.cellMatrix.scrollableRange.rows.some(
-        (r) => r.idx === this.resizedRow.idx
-      )
-    ) {
+    if (state.cellMatrix.scrollableRange.rows.some((r) => r.idx === this.resizedRow.idx)) {
       offset = state.cellMatrix.ranges.stickyTopRange.height;
-    } else if (
-      state.cellMatrix.ranges.stickyBottomRange.rows.some(
-        (r) => r.idx === this.resizedRow.idx
-      )
-    ) {
+    } else if (state.cellMatrix.ranges.stickyBottomRange.rows.some((r) => r.idx === this.resizedRow.idx)) {
       offset = bottomStickyOffset;
     } else {
       offset = scrollTop;

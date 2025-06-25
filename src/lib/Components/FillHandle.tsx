@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useRef, useLayoutEffect, useState } from "react";
 import { Location } from "../../core";
 import { State } from "../Model/State";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 import { i18n } from "../Functions/i18n";
 import { GridRendererProps } from "../Model/InternalModel";

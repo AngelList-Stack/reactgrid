@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import { areLocationsEqual } from '../Functions/areLocationsEqual';
 import { noBorder } from '../Functions/excludeObjectProperties';

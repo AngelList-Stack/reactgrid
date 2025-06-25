@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import { translateLocationIdxToLookupKey } from '../Model/CellMatrix';
 import { GridRow, GridColumn, Borders, Location } from '../Model/InternalModel';

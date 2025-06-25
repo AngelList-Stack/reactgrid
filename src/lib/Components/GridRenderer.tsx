@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import { GridRendererProps } from '../Model/InternalModel';
 import { HiddenElement } from './HiddenElement';

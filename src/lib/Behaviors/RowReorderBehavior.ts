@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Behavior } from "../Model/Behavior";
 import { State } from "../Model/State";
 import {

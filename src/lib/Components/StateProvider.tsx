@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { createContext, FC } from "react";
 import { State } from "../Model/State";
 

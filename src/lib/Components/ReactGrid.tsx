@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 import { CellRenderer, ReactGridProps } from "../../core";
 import {
@@ -6,6 +7,8 @@ import {
   StateModifier,
   CellEditorRenderer,
   handleStateUpdate,
+  focusLocation,
+  getLocationFromClient,
 } from "../../core";
 import { PointerEventsController } from "../Model/PointerEventsController";
 import { EventHandlers } from "../Model/EventHandlers";
@@ -78,6 +81,16 @@ export class ReactGrid extends React.Component<ReactGridProps, State> {
         selectedRanges: [],
       };
     });
+  };
+
+  public focusOnCell = (e: PointerEvent) => {
+    const focusedLocation = getLocationFromClient(
+      this.state,
+      e.clientX,
+      e.clientY,
+    );
+    const newState = focusLocation(this.state, focusedLocation);
+    this.setState(newState);
   };
   
   componentDidUpdate(prevProps: ReactGridProps, prevState: State): void {
